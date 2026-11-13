@@ -1,0 +1,37 @@
+# Uploads the site to thecxgals.com over FTP every time something is pushed to main.
+# Uses the FTP_SERVER, FTP_USERNAME and FTP_PASSWORD secrets saved in the repo settings.
+# Only changed files are uploaded. Files on the server that were never put there
+# by this workflow (photos uploaded by hand, other folders) are left alone.
+
+name: Deploy to thecxgals.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # adds a "Run workflow" button in the Actions tab
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the files
+        uses: actions/checkout@v4
+
+      - name: Upload to the server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          security: loose
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
