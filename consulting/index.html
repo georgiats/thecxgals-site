@@ -316,20 +316,43 @@ footer a{color:#B8BAC3}footer a:hover{color:var(--white)}
 </footer>
 
 <script>
-// Shows a thank-you or error message once after the form is sent
+// Sends the form in the background so the page doesn't reload,
+// then shows a thank-you or error message in place.
 (function () {
+  var form = document.querySelector('#call form');
+  var box = document.getElementById('form-notice');
+  var btn = form.querySelector('button[type="submit"]');
+  var hideTimer;
+
+  function show(ok) {
+    clearTimeout(hideTimer);
+    box.className = 'notice ' + (ok ? 'ok' : 'err');
+    box.textContent = ok
+      ? 'Thanks! We got your message and will be in touch soon.'
+      : 'Something went wrong. Please check your email address and try again.';
+    // Thank-you fades after 8 seconds; errors stay until the next try
+    if (ok) hideTimer = setTimeout(function () { box.className = ''; box.textContent = ''; }, 8000);
+  }
+
+  form.addEventListener('submit', function (e) {
+    if (!window.fetch) return; // very old browsers: normal post
+    e.preventDefault();
+    btn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'X-Requested-With': 'fetch' } })
+      .then(function (r) { return r.json(); })
+      .then(function (d) { show(d.ok); if (d.ok) form.reset(); })
+      .catch(function () { show(false); })
+      .then(function () { btn.disabled = false; });
+  });
+
+  // Fallback for the normal post: show the message once, then clean the address
   var params = new URLSearchParams(location.search);
   var s = params.get('sent');
-  var box = document.getElementById('form-notice');
-  if (s === '1') { box.className = 'notice ok'; box.textContent = 'Thanks! We got your message and will be in touch soon.'; }
-  if (s === '0') { box.className = 'notice err'; box.textContent = 'Something went wrong. Please check your email address and try again.'; }
   if (s !== null) {
-    // Clean the address so a refresh or shared link doesn't show the message again
+    show(s === '1');
     params.delete('sent');
     var q = params.toString();
     history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
-    // Hide the thank-you note after 8 seconds (errors stay until the next try)
-    if (s === '1') setTimeout(function () { box.className = ''; box.textContent = ''; }, 8000);
   }
 })();
 </script>

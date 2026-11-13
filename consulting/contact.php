@@ -7,6 +7,18 @@
 const TO_EMAIL   = 'hello@thecxgals.com';
 const FROM_EMAIL = 'noreply@thecxgals.com';
 
+// The page sends the form in the background and expects a short JSON answer.
+// Without JavaScript the browser posts normally and is sent back to the page.
+function respond($ok) {
+    if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'fetch') {
+        header('Content-Type: application/json');
+        echo json_encode(['ok' => (bool) $ok]);
+    } else {
+        header('Location: index.html?sent=' . ($ok ? '1' : '0') . '#call');
+    }
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.html');
     exit;
@@ -14,16 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Spam trap: bots fill the hidden "website" field, people don't
 if (!empty($_POST['website'])) {
-    header('Location: index.html?sent=1#call');
-    exit;
+    respond(true);
 }
 
 $email   = trim($_POST['email'] ?? '');
 $message = trim($_POST['message'] ?? '');
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: index.html?sent=0#call');
-    exit;
+    respond(false);
 }
 
 $message = mb_substr($message, 0, 5000);
@@ -38,5 +48,4 @@ $headers = [
 
 $ok = mail(TO_EMAIL, $subject, $body, implode("\r\n", $headers));
 
-header('Location: index.html?sent=' . ($ok ? '1' : '0') . '#call');
-exit;
+respond($ok);
