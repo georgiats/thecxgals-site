@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The CX Gals | Fractional CX leadership for tech companies</title>
+<meta name="description" content="Two senior CX leaders, one seat on your team. Support, success, onboarding, tools, migrations and AI automation for tech companies.">
+<meta property="og:title" content="The CX Gals">
+<meta property="og:description" content="Two senior CX leaders. One seat on your team.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecxgals.com/consulting/">
+<link rel="canonical" href="https://thecxgals.com/consulting/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16181D; --ink-deep:#0E0F13; --paper:#F7F7F5; --white:#FFFFFF;
+  --line:#E4E4E0; --muted:#4B4F5C; --soft:#D9DAE0;
+  --accent:#5B3FD9; --lilac:#ECE8FD; --yellow:#FFD84D;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6}
+a{color:#4A32C4}a:hover{color:#2E1E8A}
+h1,h2,h3,.display{font-family:'Bricolage Grotesque',sans-serif;margin:0}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto}
+.stack{display:flex;flex-direction:column}
+.dark{background:var(--ink);color:var(--white)}
+.eyebrow{font-size:15px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}
+.h2{font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;letter-spacing:-1px}
+.pill{display:inline-flex;align-items:center;min-height:44px;border-radius:999px;font-weight:600;text-decoration:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Nav */
+header{padding:20px 24px}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;color:var(--white);text-decoration:none;letter-spacing:-.5px}
+.logo:hover{color:var(--white)}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:28px;font-size:15px}
+nav a{color:var(--soft);text-decoration:none}
+nav a:hover{color:var(--white)}
+nav a.pill{background:var(--accent);color:var(--white);padding:12px 20px}
+
+/* Hero */
+.hero{padding:88px 24px 96px}
+.hero .wrap{gap:28px}
+.hero .eyebrow{color:var(--yellow)}
+.hero h1{font-weight:800;font-size:clamp(44px,7vw,88px);line-height:1.02;letter-spacing:-2px;max-width:980px}
+.hero .lead{font-size:clamp(18px,2vw,22px);line-height:1.55;color:var(--soft);max-width:760px}
+.btn-yellow{background:var(--yellow);color:var(--ink);padding:16px 28px;font-size:17px;margin-top:8px;align-self:flex-start}
+.btn-yellow:hover{color:var(--ink);filter:brightness(.95)}
+
+/* Problem */
+.problem{padding:80px 24px}
+.problem .wrap{gap:36px}
+.bubbles{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px 28px;align-items:start}
+.bubbles li{background:var(--white);border:1px solid var(--line);border-radius:22px 22px 22px 4px;padding:24px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:20px;line-height:1.35}
+.bubbles li.alt{background:var(--lilac);border-color:var(--lilac);border-radius:22px 22px 4px 22px}
+.bubbles li.drop{margin-top:24px}
+@media (max-width:640px){.bubbles{gap:16px}.bubbles li.drop{margin-top:0}}
+.punch{margin-top:16px;border-radius:24px;padding:clamp(32px,5vw,56px)}
+.punch p{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.5px;max-width:760px}
+.punch span{color:var(--yellow)}
+
+/* What we do */
+.what{padding:80px 24px;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.what .wrap{gap:40px}
+.intro{gap:12px;max-width:760px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:32px;gap:14px}
+.card .q{font-size:14px;font-weight:600;color:var(--accent)}
+.card h3{margin-top:-8px;font-weight:700;font-size:28px}
+.card .sum{color:var(--muted);font-size:16px}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px;display:flex;flex-direction:column;gap:4px}
+
+/* AI */
+.ai{padding:64px 24px;background:var(--accent);color:var(--white)}
+.ai .wrap{gap:28px}
+.ai .intro{gap:10px}
+.ai .eyebrow{color:var(--yellow)}
+.ai h2{font-weight:700;font-size:clamp(30px,3.6vw,44px);line-height:1.1;letter-spacing:-1px}
+.ai .intro p:last-child{font-size:17px;color:#E6E1FF}
+.checks{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.checks li{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 18px;font-size:16px;font-weight:600}
+.checks li::before{content:"";flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2316181D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/18px no-repeat}
+
+/* Who */
+.who{padding:80px 24px;background:var(--white);border-top:1px solid var(--line)}
+.who .wrap{gap:40px}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.person{border:1px solid var(--line);border-radius:20px;padding:32px;gap:16px}
+.person-head{display:flex;align-items:center;gap:18px}
+.photo{width:80px;height:80px;border-radius:50%;flex-shrink:0;object-fit:cover;background:#E9E6FB;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
+.person h3{font-weight:700;font-size:26px}
+.person .role{font-size:15px;color:var(--muted)}
+.person .bio{color:var(--muted);font-size:16px}
+.person a{font-size:14px;font-weight:600}
+
+/* CTA */
+.cta{padding:96px 24px}
+.cta .wrap{max-width:760px;align-items:center;text-align:center;gap:24px}
+.cta h2{font-weight:800;font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-1.5px}
+.cta .wrap>p{font-size:19px;color:var(--soft);max-width:600px}
+form{width:100%;max-width:560px;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+input,textarea{border:1px solid #4A4E5A;border-radius:14px;background:#20232B;color:var(--white);font:inherit}
+input{min-height:56px;padding:0 20px;font-size:17px}
+textarea{padding:16px 20px;font-size:16px;resize:vertical}
+button{min-height:56px;border:none;border-radius:999px;background:var(--yellow);color:var(--ink);font:inherit;font-weight:700;font-size:18px;cursor:pointer}
+button:hover{filter:brightness(.95)}
+.hp{display:none}
+.notice{border-radius:14px;padding:14px 18px;font-weight:600}
+.notice.ok{background:#1F3B2A;color:#B9F0CC}
+.notice.err{background:#4A1F1F;color:#FFC9C9}
+
+/* Footer */
+footer{padding:28px 24px;background:var(--ink-deep);color:#B8BAC3;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer .display{font-weight:700;color:var(--white)}
+footer a{color:#B8BAC3}footer a:hover{color:var(--white)}
+</style>
+</head>
+<body>
+
+<header class="dark">
+  <div class="wrap">
+    <a href="#top" class="logo">The CX Gals</a>
+    <nav aria-label="Main">
+      <a href="#what">What we do</a>
+      <a href="#ai">AI</a>
+      <a href="#who">Who we are</a>
+      <a href="#call" class="pill">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="top" class="hero dark">
+  <div class="wrap stack">
+    <p class="eyebrow">Fractional CX leadership for tech companies</p>
+    <h1>Two senior CX leaders. One seat on your team.</h1>
+    <p class="lead">Support, success, onboarding, tools, migrations and AI automation. We run all of it, then hire and train the team that takes over.</p>
+    <a href="#call" class="pill btn-yellow">Let's talk</a>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap stack">
+    <h2 class="h2">Sound familiar?</h2>
+    <ul class="bubbles">
+      <li>"Who owns support? Whoever has a free hour. Who owns the customer? Nobody, really."</li>
+      <li class="alt drop">"We either don't use AI for support, or we do and wish we didn't."</li>
+      <li>"People sign up, never finish setup, and we only find out when they cancel."</li>
+      <li class="alt">"Support says it's broken. Engineering can't reproduce it. The customer is still waiting."</li>
+      <li class="drop">"We ship every week, and customers still ask for features we launched months ago."</li>
+      <li class="alt">"We know AI could save us hours. But first we'd need processes, and nobody has time to build them."</li>
+    </ul>
+    <div class="punch dark">
+      <p>You need someone senior to own CX. <span>Just not five days a week.</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="what" class="what">
+  <div class="wrap stack">
+    <div class="intro stack">
+      <p class="eyebrow">What we do</p>
+      <h2 class="h2">Run, build, fix, share.</h2>
+    </div>
+    <div class="cards">
+
+      <div class="card stack">
+        <p class="q">No one owns CX yet?</p>
+        <h3>Run</h3>
+        <p class="sum">Fractional CX leadership inside your team, until the team we hire and train takes over.</p>
+        <ul>
+          <li>CX strategy, goals and KPIs</li>
+          <li>Leading support and success week to week, with AI monitoring and reports</li>
+          <li>Hiring your CX team</li>
+          <li>Training them until they can run it without us</li>
+        </ul>
+      </div>
+
+      <div class="card stack">
+        <p class="q">Starting from scratch?</p>
+        <h3>Build</h3>
+        <p class="sum">CX from zero, set up properly the first time.</p>
+        <ul>
+          <li>Processes and tools for support and success</li>
+          <li>Help desk, help center and escalation path</li>
+          <li>Onboarding strategy, from emails to playbooks</li>
+          <li>AI agents on your customer data, with human checks</li>
+          <li>AI monitoring that flags at-risk accounts and reports what needs attention</li>
+        </ul>
+      </div>
+
+      <div class="card stack">
+        <p class="q">Something is broken?</p>
+        <h3>Fix</h3>
+        <p class="sum">An audit of what is broken, then the repairs that matter most.</p>
+        <ul>
+          <li>Backlogs and slow replies, with AI triage</li>
+          <li>AI chatbots that answer the wrong questions</li>
+          <li>Churn nobody can explain</li>
+          <li>Broken handoffs and escalations to engineering</li>
+          <li>Feedback loops that never reach the roadmap</li>
+          <li>Product updates customers never notice</li>
+        </ul>
+      </div>
+
+      <div class="card stack">
+        <p class="q">Want your team to level up?</p>
+        <h3>Share</h3>
+        <p class="sum">Training for your team, talks for your event.</p>
+        <ul>
+          <li>Team training on new tools, processes and AI</li>
+          <li>Playbooks your team keeps</li>
+          <li>Tone of voice for your people and your AI agents</li>
+          <li>Talks, panels and workshops</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="ai" class="ai">
+  <div class="wrap stack">
+    <div class="intro stack">
+      <p class="eyebrow">The AI layer</p>
+      <h2>AI teammates that know every customer.</h2>
+      <p>We already run them on our own work every day. Now we build them for you, on the tools you use today, with a human check before anything reaches a customer.</p>
+    </div>
+    <ul class="checks" aria-label="What AI does for you">
+      <li>Watches usage and plan changes</li>
+      <li>Replies with full context</li>
+      <li>Triages and routes tickets</li>
+      <li>Writes bug reports for engineering</li>
+      <li>Builds your help center</li>
+      <li>Sums up feedback for Product</li>
+      <li>Drafts release notes and in-app messages</li>
+      <li>Nudges stuck users</li>
+      <li>Preps every renewal call</li>
+    </ul>
+  </div>
+</section>
+
+<section id="who" class="who">
+  <div class="wrap stack">
+    <div class="intro stack">
+      <p class="eyebrow">Who we are</p>
+      <h2 class="h2">Most fractional leaders are one person. We are a team.</h2>
+    </div>
+    <div class="people">
+
+      <div class="person stack">
+        <div class="person-head">
+          <!-- To add a photo: upload images/georgia.jpg and replace this div with
+               <img class="photo" src="images/georgia.jpg" alt="Georgia Tsiamanta"> -->
+          <div class="photo" role="img" aria-label="Photo placeholder for Georgia">[PHOTO]</div>
+          <div>
+            <h3>Georgia Tsiamanta</h3>
+            <p class="role">Lifecycle, product communication, AI on customer data</p>
+          </div>
+        </div>
+        <p class="bio">Runs the customer journey from first signup to product feedback, and builds the AI agents that keep it moving. Leads CX at a growing SaaS for creative teams, after more than ten years in support and success for companies that sell to developers. A mathematician and computer engineer who reads the logs before she writes the ticket.</p>
+        <a href="https://www.linkedin.com/in/gtsiamanta/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <div class="person stack">
+        <div class="person-head">
+          <!-- To add a photo: upload images/angeliki.jpg and replace this div with
+               <img class="photo" src="images/angeliki.jpg" alt="Angeliki Bekyra"> -->
+          <div class="photo" role="img" aria-label="Photo placeholder for Angeliki" style="background:#FFF1A8">[PHOTO]</div>
+          <div>
+            <h3>Angeliki Bekyra</h3>
+            <p class="role">CX operations, Customer Success, retention</p>
+          </div>
+        </div>
+        <p class="bio">Builds the processes, playbooks and tool stacks that keep Success and Support working as a company grows, and connects them to AI agents through MCP. A fractional operations partner for SaaS and fintech teams, with experience as a Customer Success and Support Director.</p>
+        <a href="https://www.linkedin.com/in/angeliki-bekyra/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="call" class="cta dark">
+  <div class="wrap stack">
+    <h2>Interested? Let's talk.</h2>
+    <p>Leave your email and tell us what is breaking. We will get back to you to set up a call with both of us.</p>
+    <div id="form-notice" role="status"></div>
+    <form action="contact.php" method="post">
+      <label for="cta-email" class="sr-only">Work email</label>
+      <input id="cta-email" name="email" type="email" placeholder="you@company.com" required>
+      <label for="cta-msg" class="sr-only">What is breaking? (optional)</label>
+      <textarea id="cta-msg" name="message" rows="3" placeholder="What is breaking? (optional)"></textarea>
+      <!-- Spam trap: real people never see or fill this field -->
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Let's talk</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="display">The CX Gals</span>
+    <!-- Replace # with your real links and email -->
+    <span><a href="mailto:hello@thecxgals.com">hello@thecxgals.com</a> · <a href="#">Substack</a> · <a href="#">LinkedIn</a> · <a href="#">YouTube</a></span>
+  </div>
+</footer>
+
+<script>
+// Shows a thank-you or error message once after the form is sent
+(function () {
+  var params = new URLSearchParams(location.search);
+  var s = params.get('sent');
+  var box = document.getElementById('form-notice');
+  if (s === '1') { box.className = 'notice ok'; box.textContent = 'Thanks! We got your message and will be in touch soon.'; }
+  if (s === '0') { box.className = 'notice err'; box.textContent = 'Something went wrong. Please check your email address and try again.'; }
+  if (s !== null) {
+    // Clean the address so a refresh or shared link doesn't show the message again
+    params.delete('sent');
+    var q = params.toString();
+    history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
+    // Hide the thank-you note after 8 seconds (errors stay until the next try)
+    if (s === '1') setTimeout(function () { box.className = ''; box.textContent = ''; }, 8000);
+  }
+})();
+</script>
+</body>
+</html>

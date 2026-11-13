@@ -1,0 +1,4 @@
+# Keeps this folder (page and form) out of search engines
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
